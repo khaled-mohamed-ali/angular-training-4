@@ -11,9 +11,11 @@ import { TasksService } from '../tasks.service';
 })
 export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
-  private tasksService = inject(TasksService)
+   private tasksService = inject(TasksService)
+
 
   onAddTask(title: string, description: string) {
+    this.tasksService.addTask({title,description})
     this.formEl()?.nativeElement.reset();
   }
 }

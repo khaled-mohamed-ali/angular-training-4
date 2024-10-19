@@ -11,8 +11,9 @@
 </header>
 
 <ul>
-  @for (task of tasks; track task) {
+  @for (task of tasks(); track task.id) {
     <li>
+      3
       <app-task-item [task]="task" />
     </li>
   }

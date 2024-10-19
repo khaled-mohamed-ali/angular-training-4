@@ -5,17 +5,18 @@ import { Task } from './task.model';
   providedIn: 'root'
 })
 export class TasksService {
-tasks = signal<Task[]>([])
 
-addTask(taskData: {titls: string; description: string}) {
-const newTask: Task = {
+  [x: string]: any;
+private tasks = signal<Task[]>([])
+allTasks = this.tasks.asReadonly();
+
+ addTask(taskData: {title: string; description: string}) {
+  const newTask: Task = {
   ...taskData,
   id: Math.random().toString(),
   status: 'OPEN',
-  title: ''
 };
-  
-  this.tasks.update((oldTasks) => [...oldTasks, newTask])
+  this.tasks.update((oldTasks) => [...oldTasks, newTask]);
 }
 
 

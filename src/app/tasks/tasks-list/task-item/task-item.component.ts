@@ -11,6 +11,7 @@ import { Task, TaskStatus } from '../../task.model';
   styleUrl: './task-item.component.css',
 })
 export class TaskItemComponent {
+
   task = input.required<Task>();
   taskStatus = computed(() => {
     switch (this.task().status) {
@@ -24,6 +25,8 @@ export class TaskItemComponent {
         return 'Open';
     }
   });
+
+
 
   onChangeTaskStatus(taskId: string, status: string) {
     let newStatus: TaskStatus = 'OPEN';
