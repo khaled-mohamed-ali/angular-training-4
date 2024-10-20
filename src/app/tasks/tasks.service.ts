@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Task } from './task.model';
+import { Task, TaskStatus } from './task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,9 @@ allTasks = this.tasks.asReadonly();
   this.tasks.update((oldTasks) => [...oldTasks, newTask]);
 }
 
-
+onChangeTaskStatus(taskId: string, newStatus: TaskStatus) {
+  this.tasks.update( (oldTask) => 
+    oldTask.map((task) => task.id === taskId ? { ...task, status: newStatus }: task) 
+  )
+}
 }

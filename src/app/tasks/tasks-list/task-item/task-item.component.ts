@@ -26,7 +26,9 @@ export class TaskItemComponent {
     }
   });
 
-
+  ngOnInint() {
+    console.log(this.task())
+  }
 
   onChangeTaskStatus(taskId: string, status: string) {
     let newStatus: TaskStatus = 'OPEN';
